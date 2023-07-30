@@ -1,0 +1,75 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-size: cover;
+  background-position: center;
+}
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+.page-background {
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+}
+
+.paper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 450px;
+  max-width: 90%;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.header {
+  font-size: 2.5rem ;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1rem;
+}
+.autocomplete-textfield input {
+  overflow: visible; /* Show overflowing content */
+  white-space: nowrap; /* Prevent wrapping */
+  text-overflow: ellipsis; /* Display an ellipsis (...) for overflow */
+}
+#city-suggestions {
+  min-width: 150px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px; /* Add some vertical spacing between elements */
+}
+
+.input::placeholder {
+  font-style: italic;
+  color: #aaa;
+}
+.weather-info {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
