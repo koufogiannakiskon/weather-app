@@ -9,6 +9,8 @@ import "./App.css";
 import { Autocomplete } from "@mui/material";
 import useStyles from "./utils/styles.js";
 import { API_KEY_WEATHER, UNSPLASH_ACCESS_KEY, API_CITY } from "./utils/config";
+import Header from "./Header.js";
+import ErrorMessage from "./ErrorMessage.js";
 
 const App = () => {
   const [weatherData, setWeatherData] = useState(defaultWeatherData);
@@ -84,14 +86,7 @@ const App = () => {
       >
         <Box className={classes.root}>
           <Paper elevation={3} className={classes.paper}>
-            <Typography
-              className={classes.header}
-              variant="h4"
-              component="h1"
-              gutterBottom
-            >
-              Weather App
-            </Typography>
+            <Header />
             <form onSubmit={handleSubmit} className={classes.formContainer}>
               <Autocomplete
                 value={location}
@@ -141,13 +136,7 @@ const App = () => {
               </Typography>
             </Paper>
           )}
-          {!weatherData && (
-            <Paper elevation={3} className={classes.paper}>
-              <Typography variant="body1" className="error-message">
-                No weather data available. Please try another location.
-              </Typography>
-            </Paper>
-          )}
+          {!weatherData && <ErrorMessage />}
         </Box>
       </Box>
     </>
