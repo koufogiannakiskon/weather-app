@@ -42,5 +42,5 @@ export const defaultWeatherData = {
   name: "Athens",
   cod: 200,
   cityImage:
-    "https://images.unsplash.com/photo-1590746197887-4420dda1e540?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0ODIxNjJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2OTA3MjA2MDR8&ixlib=rb-4.0.3&q=80&w=1080",
+    "https://images.unsplash.com/photo-1576481230860-b782b3d5b36d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0ODIxNjJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2OTA4MjcxMzN8&ixlib=rb-4.0.3&q=80&w=1080",
 };
