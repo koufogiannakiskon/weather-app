@@ -102,7 +102,7 @@ const App = () => {
                 renderInput={(params) => (
                   <TextField
                     {...params}
-                    key={suggestions}
+                    key={suggestions.keys()}
                     label="Enter city name"
                     variant="outlined"
                     inputRef={inputRef}
@@ -131,7 +131,7 @@ const App = () => {
                 />
               </Typography>
               <Typography variant="body1" gutterBottom>
-                Temperature: {weatherData.main.temp}°C
+                Temperature: {Math.round(weatherData.main.temp - 273.15)}°C
               </Typography>
               <Typography variant="body1" gutterBottom>
                 Humidity: {weatherData.main.humidity}%
