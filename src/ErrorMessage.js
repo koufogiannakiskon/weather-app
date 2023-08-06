@@ -9,7 +9,7 @@ const ErrorMessage = () => {
   return (
     <Paper elevation={3} className={classes.paper}>
       <Typography variant="body1" className="error-message">
-        No weather data available. Please try another location.
+        Please enter your city.
       </Typography>
     </Paper>
   );

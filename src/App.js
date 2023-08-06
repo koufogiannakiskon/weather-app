@@ -4,7 +4,6 @@ import Button from "@mui/material/Button";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import { defaultWeatherData } from "./utils/defaultWeatherData.js";
 import "./App.css";
 import { Autocomplete } from "@mui/material";
 import useStyles from "./utils/styles.js";
@@ -13,7 +12,10 @@ import Header from "./Header.js";
 import ErrorMessage from "./ErrorMessage.js";
 
 const App = () => {
-  const [weatherData, setWeatherData] = useState(defaultWeatherData);
+  const [weatherData, setWeatherData] = useState(null);
+  const [imageData, setImageData] = useState(
+    "https://images.unsplash.com/photo-1576481230860-b782b3d5b36d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0ODIxNjJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2OTA4MjcxMzN8&ixlib=rb-4.0.3&q=80&w=1080"
+  );
   const [location, setLocation] = useState("Athens");
   const [suggestions, setSuggestions] = useState([]);
 
@@ -34,10 +36,9 @@ const App = () => {
       if (!imageResponse.ok) {
         throw new Error("City image not found.");
       }
-      const imageData = await imageResponse.json();
-
-      // Combine weather data and city image URL
-      setWeatherData({ ...data, cityImage: imageData.urls.regular });
+      const backgroundImage = await imageResponse.json();
+      setImageData(backgroundImage.urls.regular);
+      setWeatherData(data);
     } catch (error) {
       console.error(error.message);
       setWeatherData(null);
@@ -78,11 +79,7 @@ const App = () => {
     <>
       <Box
         className={classes.pageBackground}
-        style={
-          weatherData && weatherData.cityImage
-            ? { backgroundImage: `url(${weatherData.cityImage})` }
-            : {}
-        }
+        style={imageData ? { backgroundImage: `url(${imageData})` } : {}}
       >
         <Box className={classes.root}>
           <Paper elevation={3} className={classes.paper}>
